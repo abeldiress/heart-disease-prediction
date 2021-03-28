@@ -13,17 +13,18 @@ def maximum_absolute_scaling(df):
 
     return df_scaled
 
+# opening datasets and applying preprocessing algorithm
 data_csv = pd.read_csv('heart.csv')
 data_csv = maximum_absolute_scaling(data_csv)
 
-#att = ['age', 'sex', 'fbs', 'thalach', 'exang', 'chol', 'trestbps']
-
+# attributes that will be used in the prediction model
 att = ['age', 'sex', 'fbs', 'thalach', 'exang', 'chol', 'trestbps']
 target = ['target']
 
 X = []
 y = []
 
+# iterates through each sample and gets the desired attributes
 for i in range(data_csv.shape[0]):
     X.append(list(data_csv[att].iloc[i]))
     y.append(list(data_csv[target].iloc[i]))
@@ -34,6 +35,7 @@ y = np.array(y)
 print(X.shape)
 print(y.shape)
 
+# saving the numpy arrays into files
 with open('X.pkl', 'wb') as f:
     print('WRITING X')
     pickle.dump(X, f)
