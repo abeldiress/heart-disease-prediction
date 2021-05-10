@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 
-# apply the maximum absolute scaling in Pandas using the .abs() and .max() methods
+# apply a data augmentation scaling algorithm
 def maximum_absolute_scaling(df):
     # copy the dataframe
     df_scaled = df.copy()
